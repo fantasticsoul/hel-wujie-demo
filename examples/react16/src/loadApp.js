@@ -9,7 +9,6 @@ const basename = process.env.NODE_ENV === "production" ? "/demo-react16/" : "";
 if (window.__POWERED_BY_WUJIE__) {
   // eslint-disable-next-line no-undef
   window.__WUJIE_MOUNT = () => {
-    console.log('log here!'); // 这里并不会打印
     ReactDOM.render(
       <BrowserRouter basename={basename}>
         <App />
@@ -20,6 +19,7 @@ if (window.__POWERED_BY_WUJIE__) {
   window.__WUJIE_UNMOUNT = () => {
     ReactDOM.unmountComponentAtNode(document.getElementById("root"));
   };
+  window.__WUJIE.mount();
 } else {
   ReactDOM.render(
     <BrowserRouter basename={basename}>
